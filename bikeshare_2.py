@@ -68,14 +68,14 @@ def load_data(city, month, day):
     """
     df = pd.read_csv(CITY_DATA[city])
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-    df['month'] = df['Start Time'].dt.month
-    df['day'] = df['Start Time'].dt.weekday
+    df['Month'] = df['Start Time'].dt.month
+    df['Day'] = df['Start Time'].dt.weekday
     
     # Filtering by month or day, except when user selects "all"
     if month != "all":
-        df = df[df["month"] == month]
+        df = df[df["Month"] == month]
     if day != "all":
-        df = df[df["day"] == day]
+        df = df[df["Day"] == day]
 
     return df
 
