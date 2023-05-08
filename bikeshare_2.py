@@ -1,6 +1,9 @@
 import time
 import pandas as pd
 
+# Configuring pandas to show all columns
+pd.set_option('display.max_columns',200)
+
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
@@ -8,7 +11,6 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 MONTHS = ["january", "february", "march", "april", "may", "june"]
 
 DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
-
 
 def get_filters():
     """
