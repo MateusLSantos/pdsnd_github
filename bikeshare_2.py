@@ -71,6 +71,7 @@ def load_data(city, month, day):
     df['month'] = df['Start Time'].dt.month
     df['day'] = df['Start Time'].dt.weekday
     
+    # Filtering by month or day, except when user selects "all"
     if month != "all":
         df = df[df["month"] == month]
     if day != "all":
@@ -94,7 +95,7 @@ def time_stats(df):
     # display the most common start hour
     print("The most common hour was {}h.".format(df["Start Time"].dt.hour.mode()[0]))
 
-
+    # Performance display
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -115,6 +116,7 @@ def station_stats(df):
     df["Combined Trip"] = df["Start Station"] + " to " + df["End Station"]
     print("The most common trip is from {}.".format(df["Combined Trip"].mode()[0]))
 
+    # Performance display
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -131,7 +133,7 @@ def trip_duration_stats(df):
     # display mean travel time
     print("The mean travel time was {} seconds.".format(df["Trip Duration"].mean()))
 
-
+    # Performance display
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -164,6 +166,7 @@ def user_stats(df):
     except:
         print("No birth year data found.")
 
+    # Performance display
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
